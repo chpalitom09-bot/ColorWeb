@@ -91,6 +91,19 @@ h1{font-size:clamp(40px,6vw,76px);line-height:1;font-weight:800;letter-spacing:-
 .cta{background:var(--s1);border-top:1px solid var(--line)}
 .cta .row{margin-top:32px}
 footer{padding:32px 0;color:var(--mu);font-size:14px;border-top:1px solid var(--line)}
+
+.inst{margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;counter-reset:s;list-style:none;padding:0}
+.inst li{counter-increment:s;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px 22px 22px 70px;position:relative}
+.inst li::before{content:counter(s);position:absolute;left:20px;top:20px;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--ink);font-weight:800;display:grid;place-items:center}
+.inst h3{font-size:19px;font-weight:600;margin-bottom:6px}
+.inst p{color:var(--mu);font-size:15px;max-width:44ch}
+.inst p+p{margin-top:8px}
+.inst b{color:var(--tx);font-weight:600}
+.cc{display:inline-block;margin-top:10px;background:var(--s2);color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:500 14px ui-monospace,Consolas,monospace;cursor:pointer}
+.cc:hover{border-color:var(--accent)}
+.note{margin-top:24px;color:var(--mu);font-size:14px;max-width:70ch}
+.note a{color:var(--accent)}
+@media(max-width:820px){.inst{grid-template-columns:1fr}}
 @media(max-width:820px){
  .hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0}
  .sticky{grid-template-columns:1fr;grid-template-rows:1fr auto;gap:0}
@@ -161,8 +174,17 @@ footer{padding:32px 0;color:var(--mu);font-size:14px;border-top:1px solid var(--
 
 <section class="sec cta" id="installer"><div class="wrap">
  <h2>Ajoutez-la à Chrome.</h2>
- <p class="lead">Le code est sur GitHub, la publication sur le Chrome Web Store arrive.</p>
- <div class="row"><a class="btn" href="https://github.com/" target="_blank" rel="noopener">Voir sur GitHub</a><a class="btn ghost" href="#top">Retour en haut</a></div>
+ <p class="lead">Extension moderne (Manifest V3), sans compte, sans pub, sans collecte de données. En attendant le Chrome Web Store, installez-la en 2 minutes.</p>
+ <div class="row"><a class="btn" href="ColorWeb-extension.zip" download>Télécharger l'extension (.zip)</a><a class="btn ghost" href="https://github.com/" target="_blank" rel="noopener">Voir sur GitHub</a></div>
+ <ol class="inst">
+  <li><h3>Téléchargez et décompressez</h3><p>Récupérez le <b>.zip</b> ci-dessus, puis faites clic droit → <b>Extraire tout</b> (Windows) ou double-clic (Mac).</p><p>Chrome ne sait pas charger un .zip : il lui faut le <b>dossier</b> décompressé, et vous devez le garder quelque part où il ne bougera plus.</p></li>
+  <li><h3>Ouvrez la page des extensions</h3><p>Dans Chrome, tapez cette adresse dans la barre d'URL (ou cliquez pour la copier) :</p><button class="cc" data-copy="chrome://extensions">chrome://extensions</button></li>
+  <li><h3>Activez le mode développeur</h3><p>Le bouton <b>Mode développeur</b> est en haut à droite de la page. Activez-le : trois nouveaux boutons apparaissent.</p></li>
+  <li><h3>Chargez le dossier</h3><p>Cliquez sur <b>Charger l'extension non empaquetée</b> et choisissez le dossier <b>ColorWeb</b> (celui qui contient le fichier <b>manifest.json</b>).</p></li>
+  <li><h3>Épinglez-la</h3><p>Cliquez sur l'icône puzzle de la barre d'outils, puis sur l'épingle à côté de <b>ColorWeb</b>. Elle reste toujours à portée de clic.</p></li>
+  <li><h3>Attrapez une couleur</h3><p>Cliquez sur l'icône, ou utilisez le raccourci <b>Alt + Maj + C</b>. Pointez, cliquez : le code est copié. <b>T</b> pour le mode texte, <b>Échap</b> pour annuler.</p></li>
+ </ol>
+ <p class="note">Ça marche aussi sur Edge (<b>edge://extensions</b>), Brave (<b>brave://extensions</b>) et les autres navigateurs basés sur Chromium, avec les mêmes étapes. Chrome peut afficher un avertissement « extensions en mode développeur » à l'ouverture : c'est normal tant que l'extension n'est pas sur le Web Store, vous pouvez le fermer. La pipette ne fonctionne pas sur les pages système (chrome://) ni sur la boutique Chrome.</p>
 </div></section>
 
 <footer><div class="wrap">ColorWeb — fait par Tom.</div></footer>
@@ -232,6 +254,10 @@ function frame(){raf=0;const k=rm?1:.1;p+=(tgt-p)*k;mx+=(tx-mx)*.08;my+=(ty-my)*
 function fit(){const w=$('scene').clientWidth,h=$('scene').clientHeight;sv('--sc2',clamp(Math.min((w-16)/700,(h-10)/380),.28,1).toFixed(3))}
 addEventListener('resize',()=>{fit();kick()});fit();
 measure();kick();
+
+document.querySelectorAll('.cc').forEach(b=>b.onclick=async()=>{const t=b.textContent;
+ try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='Copié ! Collez-le dans un nouvel onglet';setTimeout(()=>b.textContent=t,2200)}
+ catch(e){b.textContent='Copiez-le à la main';setTimeout(()=>b.textContent=t,2200)}});
 </script>
 </body>
 </html>
