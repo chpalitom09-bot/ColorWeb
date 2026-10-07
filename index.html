@@ -94,7 +94,7 @@ footer{padding:32px 0;color:var(--mu);font-size:14px;border-top:1px solid var(--
 @media(max-width:820px){
  .hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0}
  .sticky{grid-template-columns:1fr;grid-template-rows:1fr auto;gap:0}
- .scene{grid-row:1;--sc2:.56}.steps{grid-row:2;height:210px}
+ .scene{grid-row:1;overflow:hidden}.steps{grid-row:2;height:190px}.step p{font-size:16px}
  .cols{grid-template-columns:1fr}.sec{padding:80px 0}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -229,6 +229,8 @@ function frame(){raf=0;const k=rm?1:.1;p+=(tgt-p)*k;mx+=(tx-mx)*.08;my+=(ty-my)*
  chips.forEach((c,n)=>{c.style.background=stops[n].c;c.classList.toggle('on',p>=n/(stops.length-1)-.01)});
  const j=Math.min(2,Math.floor(tgt*3));if(j!==idx){steps[idx].classList.remove('on');steps[j].classList.add('on');idx=j}
  if(Math.abs(tgt-p)>.0005||Math.abs(tx-mx)>.003||Math.abs(ty-my)>.003)kick()}
+function fit(){const w=$('scene').clientWidth,h=$('scene').clientHeight;sv('--sc2',clamp(Math.min((w-16)/700,(h-10)/380),.28,1).toFixed(3))}
+addEventListener('resize',()=>{fit();kick()});fit();
 measure();kick();
 </script>
 </body>
