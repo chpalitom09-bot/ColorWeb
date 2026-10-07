@@ -1,0 +1,38 @@
+{
+  "name": "ColorWeb",
+  "short_name": "ColorWeb",
+  "description": "Pipette à couleurs pour Chrome : pointez n'importe quel endroit d'un site et copiez son code couleur en un clic.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1b1c1f",
+  "theme_color": "#1b1c1f",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "productivity",
+    "design"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
