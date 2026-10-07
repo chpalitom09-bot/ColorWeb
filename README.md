@@ -11,7 +11,7 @@
 
 **Pointez n'importe quel endroit d'un écran. Le code couleur est copié. C'est tout.**
 
-[Installation](#-installation) · [Utilisation](#-utilisation) · [Fonctionnalités](#-fonctionnalités) · [Vie privée](#-vie-privée) · [Développement](#-développement)
+[Installation](#installation) · [Utilisation](#utilisation) · [Fonctionnalités](#fonctionnalités) · [Vie privée](#vie-privée) · [Développement](#développement)
 
 </div>
 
@@ -27,7 +27,7 @@
 
 <br>
 
-## 🎨 C'est quoi, ColorWeb ?
+## C'est quoi, ColorWeb ?
 
 ColorWeb est une **pipette à couleurs pour Chrome**. Vous lancez l'extension, une loupe suit votre curseur et grossit les pixels, vous cliquez : le code couleur est dans votre presse-papiers, prêt à coller dans votre CSS, Figma ou n'importe quel outil de design.
 
@@ -39,7 +39,7 @@ Pas de compte, pas de pub, pas de collecte de données. Tout se passe dans votre
 
 <br>
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 <div align="center">
   <img src="assets/features.svg" alt="Partout dans Chrome, précise sur le texte, raccourci clavier, formats HEX RGB HSL" width="100%">
@@ -47,12 +47,12 @@ Pas de compte, pas de pub, pas de collecte de données. Tout se passe dans votre
 
 <br>
 
-Et aussi :
-
-- 🔍 **Loupe pixel par pixel** pour viser la couleur exacte
-- 🕘 **Historique** des 24 dernières couleurs, cliquables pour les retrouver
-- 🎯 **Format par défaut au choix** (HEX, RGB ou HSL), mémorisé entre deux sessions
-- ⚡ **Léger** : moins de 200 lignes de JavaScript, aucune dépendance
+| Et aussi | Détail |
+| --- | --- |
+| **Loupe pixel par pixel** | Pour viser la couleur exacte |
+| **Historique** | Les 24 dernières couleurs, cliquables pour les retrouver |
+| **Format par défaut** | HEX, RGB ou HSL, mémorisé entre deux sessions |
+| **Léger** | Moins de 200 lignes de JavaScript, aucune dépendance |
 
 <br>
 
@@ -60,7 +60,7 @@ Et aussi :
 
 <br>
 
-## 🚀 Installation
+## Installation
 
 > L'extension n'est pas encore sur le Chrome Web Store. En attendant, l'installation prend **2 minutes** avec le mode développeur de Chrome.
 
@@ -81,7 +81,7 @@ Faites un clic droit sur le `.zip` puis **Extraire tout** (Windows) ou double-cl
 2. Activez **Mode développeur** (en haut à droite)
 3. Cliquez sur **Charger l'extension non empaquetée**
 4. Choisissez le dossier **`ColorWeb`**, celui qui contient le fichier `manifest.json`
-5. Cliquez sur l'icône puzzle 🧩 de la barre d'outils, puis épinglez **ColorWeb**
+5. Cliquez sur l'icône puzzle de la barre d'outils, puis épinglez **ColorWeb**
 
 C'est prêt.
 
@@ -123,7 +123,7 @@ Tous les navigateurs basés sur Chromium fonctionnent avec les mêmes étapes. S
 
 <br>
 
-## 🎯 Utilisation
+## Utilisation
 
 1. Cliquez sur l'icône ColorWeb puis sur **Attraper une couleur**, ou tapez `Alt + Maj + C`
 2. Déplacez la loupe sur la couleur voulue
@@ -154,7 +154,7 @@ Tous les navigateurs basés sur Chromium fonctionnent avec les mêmes étapes. S
 
 <br>
 
-## 🔒 Vie privée
+## Vie privée
 
 ColorWeb ne communique avec **aucun serveur**. Le code ne contient aucune requête réseau, aucun outil de mesure d'audience, aucun traceur. L'historique est stocké uniquement sur votre machine, dans `chrome.storage.local`.
 
@@ -169,11 +169,14 @@ La capture d'écran de l'onglet est faite en local, lue le temps de la sélectio
 
 <br>
 
-## 🛠 Développement
+## Développement
 
 ```text
 .
 ├── index.html                  # site de présentation (GitHub Pages)
+├── manifest.webmanifest        # PWA : le site s'installe comme une app
+├── sw.js                       # PWA : service worker (fonctionne hors ligne)
+├── icon-192.png / icon-512.png / icon-maskable-512.png / apple-touch-icon.png
 ├── ColorWeb-extension.zip      # l'extension, prête à télécharger
 ├── README.md
 ├── assets/                     # SVG animés de ce README
@@ -201,6 +204,6 @@ La capture d'écran de l'onglet est faite en local, lue le temps de la sélectio
 
 <br>
 
-Fait avec 🎨 par Tom.
+Fait par Tom.
 
 </div>
